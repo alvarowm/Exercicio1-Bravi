@@ -1,0 +1,15 @@
+package br.bravi;
+
+public class Exercicio1Teste {
+	
+	String [] acertos = {"{{{[{()}]}}}",
+			"(){}[]",
+			"[{()}](){}",
+			"[]{()",
+			"[{)]",
+			"()",
+			"[]",
+			"{}"}; 
+	String [] erros = {};
+
+}

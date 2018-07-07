@@ -1,0 +1,7 @@
+package br.bravi;
+
+public class Exercicio1Teste {
+	
+	String [] strsDeTese = new String {};
+
+}

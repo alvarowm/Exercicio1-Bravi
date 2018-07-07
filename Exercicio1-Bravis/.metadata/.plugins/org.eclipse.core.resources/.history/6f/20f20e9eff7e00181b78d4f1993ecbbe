@@ -1,0 +1,24 @@
+package br.bravi;
+
+public class Main {
+	public static void main (String [] args){
+		Exercicio1 t = new Exercicio1();
+		System.out.println( t.seEstaBalanceada("{{{[{()}]}}}"));
+		//{{{[{()}]}}}
+		//(){}[]
+		//[{()}](){}
+		//[]{()
+		//[{)]
+		//()
+		//[]
+		//{}
+		
+		
+		
+		//(
+		//)
+		//{{}
+		//[[]
+		//]
+	}
+}

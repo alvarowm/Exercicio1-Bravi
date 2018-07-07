@@ -1,0 +1,61 @@
+package br.bravi;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Stack;
+
+public class Exercicio1 {
+
+	private final char ABRE_PARENTESES = '(';
+	private final char FECHA_PARENTESES = ')';
+	private final char ABRE_COLCHETES = '[';
+	private final char FECHA_COLCHETES = ']';
+	private final char ABRE_CHAVES = '{';
+	private final char FECHA_CHAVES = '}';
+
+	@SuppressWarnings("unchecked")
+	public boolean seEstaBalanceada(String expressao) {
+		@SuppressWarnings("rawtypes")
+		Stack<Character> pilhaDeCharsProcurados = new Stack();
+		
+		Map<Character, Character> mapDeCharsEsperados = new HashMap<>(); 
+		
+
+		for (int i = 0; i < expressao.length(); i++) {
+
+			if (expressao.charAt(i) == ABRE_PARENTESES) {
+				pilhaDeCharsProcurados.push(FECHA_PARENTESES);
+				continue;
+			}
+
+			if (expressao.charAt(i) == ABRE_COLCHETES) {
+				pilhaDeCharsProcurados.push(FECHA_COLCHETES);
+				continue;
+			}
+
+			if (expressao.charAt(i) == ABRE_CHAVES) {
+				pilhaDeCharsProcurados.push(FECHA_CHAVES);
+				continue;
+			}
+
+			if (!pilhaDeCharsProcurados.isEmpty() && expressao.charAt(i) == (char) pilhaDeCharsProcurados.peek()) {
+				pilhaDeCharsProcurados.pop();
+				continue;
+			}
+
+			// se o char é um fechamento não esperado
+			if (seCharEhFechamento(expressao, i)) {
+				return false;
+			}
+
+		}
+
+		return pilhaDeCharsProcurados.isEmpty();
+	}
+
+	private boolean seCharEhFechamento(String expressao, int i) {
+		return expressao.charAt(i) == FECHA_CHAVES || expressao.charAt(i) == FECHA_COLCHETES
+				|| expressao.charAt(i) == FECHA_PARENTESES;
+	}
+
+}

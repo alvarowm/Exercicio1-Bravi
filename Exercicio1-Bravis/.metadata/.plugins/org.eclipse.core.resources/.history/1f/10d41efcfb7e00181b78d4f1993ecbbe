@@ -1,0 +1,42 @@
+package br.bravi;
+
+import java.util.Stack;
+
+public class Teste {
+
+	private final char  ABRE_PARENTESES = '('; 
+	private final char  FECHA_PARENTESES = ')';
+	private final char  ABRE_COLCHETES = '['; 
+	private final char  FECHA_COLCHETES = ']';
+	private final char  ABRE_CHAVES = '{'; 
+	private final char  FECHA_CHAVES = '}';
+
+	@SuppressWarnings("unchecked")
+	public boolean seEstaBalanceada (String expressao){
+		@SuppressWarnings("rawtypes")
+		Stack pilhaDeCharProcurados = new Stack();
+
+		for (int i=0; i < expressao.length(); i ++){
+			
+			if (expressao.charAt(i) == ABRE_PARENTESES){				
+				pilhaDeCharProcurados.push(FECHA_PARENTESES);
+			}
+
+			if (expressao.charAt(i) == ABRE_COLCHETES){				
+				pilhaDeCharProcurados.push(FECHA_COLCHETES);
+			}
+			
+			if (expressao.charAt(i) == ABRE_CHAVES){				
+				pilhaDeCharProcurados.push(FECHA_CHAVES);
+			}
+			
+			if (expressao.charAt(i) == (char)pilhaDeCharProcurados.peek() && !pilhaDeCharProcurados.isEmpty()){				
+				pilhaDeCharProcurados.pop();
+
+			}
+		}
+
+		return pilhaDeCharProcurados.isEmpty();
+	}
+
+}
