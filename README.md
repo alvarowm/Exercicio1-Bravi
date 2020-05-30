@@ -1,3 +1,4 @@
 # Exercício1-Bravi
 
- Coloquei no git o projeto inteiro com as configurações do eclipse, basta baixar e executar os testes.
+ Prova feita para a empresa Bravi 
+ Essa questão envolveu a criação de um Algoritmo que verifica se uma expressão está corretamente delimitada por [], {} e ().
